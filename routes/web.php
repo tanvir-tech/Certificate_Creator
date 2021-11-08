@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +33,7 @@ Route::post('/login',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
 Route::get('/registration', function () {return view('auth.registration');});
 Route::post('/registration',[UserController::class,'registration']);
+
+
+// event
+Route::get('/c',[EventController::class,'sendCertificates']);
