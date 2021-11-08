@@ -37,3 +37,9 @@
     </div>
   </nav>
   {{-- nav bar closed  --}}
+
+<div class="container bg-warning p-2">
+    <marquee behavior="" direction="">
+        The seminar will be held on 12 November 2021.Thank you.
+    </marquee>
+</div>
