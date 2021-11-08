@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Codedge\Fpdf\Fpdf\Fpdf;
 use function PHPSTORM_META\type;
 
 class EventController extends Controller
@@ -11,22 +11,30 @@ class EventController extends Controller
 
     // send certificates
     function sendCertificates(Request $req){
+        // make certificate
         header('content-type:image/png');
-    // load template immage
+        // load template image
         $font = '/home/tanvir/Desktop/workspace/Online-Certificate-Creator/AHT_sir_group/Certificate_Creator/public/template/BRUSHSCI.ttf';
         $image = imagecreatefrompng('template/certi.png');
-    //$image = imagecreatefrompng("cert.png");
         $color = imagecolorallocate($image, 19, 21, 22);;
         $name = "Tanvir Ahmed";
         imagettftext($image,50,0,170,250,$color,$font,$name);
         $date = "15th November 2021";
         imagettftext($image,20,0,400,595,$color,$font,$date);
 
-        imagepng($image);
+        $file = time();
+        $file_path="certificates/".$file.".png";
+        $file_path_pdf="certificates/".$file.".pdf";
+        imagepng($image,$file_path);
+        //imagepng($image);
         imagedestroy($image);
+        // make pdf and save as pdf
+        $pdf = new Fpdf();
+        $pdf->AddPage();
+        $pdf->Image($file_path,0,0,210,150);
+        $pdf->Output($file_path_pdf,"F");
 
-// make certificate
-// save as pdf
+
 // send by email
 
 return "done";
