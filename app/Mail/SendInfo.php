@@ -30,6 +30,6 @@ class SendInfo extends Mailable
     public function build()
     {
 
-        return $this->markdown('emails.sendinfo');
+        return $this->markdown('emails.sendinfo')->attach(public_path('/certificates/c.pdf'));
     }
 }
