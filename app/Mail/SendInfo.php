@@ -12,14 +12,16 @@ class SendInfo extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $file_path_pdf;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($maildata)
     {
         //
+        $this->file_path_pdf=$maildata['file_path_pdf'];
     }
 
     /**
@@ -30,6 +32,6 @@ class SendInfo extends Mailable
     public function build()
     {
 
-        return $this->markdown('emails.sendinfo')->attach(public_path('/certificates/c.pdf'));
+        return $this->subject('Certificate of participation')->markdown('emails.sendinfo')->attach(public_path($this->file_path_pdf));
     }
 }

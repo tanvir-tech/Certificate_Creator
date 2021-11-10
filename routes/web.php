@@ -38,8 +38,8 @@ Route::post('/registration',[UserController::class,'registration']);
 
 
 // event
-Route::get('/c',[EventController::class,'sendCertificates']);
-Route::get('/email', function () {
-    Mail::to('totopypy5@gmail.com')->send(new SendInfo());
-    return new SendInfo();
-});
+Route::get('/send',[EventController::class,'sendCertificates']);
+// Route::get('/email', function () {
+//     Mail::to('totopypy5@gmail.com')->send(new SendInfo());
+//     return new SendInfo();
+// });

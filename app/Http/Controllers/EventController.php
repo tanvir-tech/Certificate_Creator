@@ -2,29 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendInfo;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Codedge\Fpdf\Fpdf\Fpdf;
+use Illuminate\Support\Facades\Mail;
+use PhpParser\Node\Expr\Cast\String_;
+
 use function PHPSTORM_META\type;
 
 class EventController extends Controller
 {
 
     // send certificates
-    function sendCertificates(Request $req){
+    function sendCertificates(String $name, String $gmail){
         // make certificate
         header('content-type:image/png');
         // load template image
         $font = '/home/tanvir/Desktop/workspace/Online-Certificate-Creator/AHT_sir_group/Certificate_Creator/public/template/BRUSHSCI.ttf';
         $image = imagecreatefrompng('template/certi.png');
         $color = imagecolorallocate($image, 19, 21, 22);;
-        $name = "Iqbal Ahmed";
-        imagettftext($image,50,0,170,250,$color,$font,$name);
+        //$name = "Tanvir Ahmed";
         $date = "15th November 2021";
+
+        imagettftext($image,50,0,170,250,$color,$font,$name);
         imagettftext($image,20,0,400,595,$color,$font,$date);
 
         $file = time();
-        $file_path="certificates/".$file.".png";
-        $file_path_pdf="certificates/".$file.".pdf";
+        $file_path="certificates/".$name.$file.".png";
+        $file_path_pdf="certificates/".$name.$file.".pdf";
         imagepng($image,$file_path);
         //imagepng($image);
         imagedestroy($image);
@@ -36,11 +42,23 @@ class EventController extends Controller
         // send by email
 
 
+        $maildata=[
+            'name'=>$name,
+            'file_path_pdf'=>$file_path_pdf
+        ];
 
-        return "done";
+        Mail::to($gmail)->send(new SendInfo($maildata));
+        return "Certificate sent";
     }
 
+function sendtoall(){
+    $date = "20 November 2021";
+    $users = User::all();
+    foreach($users as $user){
 
+        $this->sendCertificates($user->name,$user->email);
+    }
+}
 
 
 
