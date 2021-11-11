@@ -64,8 +64,20 @@ function sendtoall(){
 
 
     // see registered users records
-    function participantsList(){}
+    function participantsList(){
+
+
+        $users = User::where('paid',1)->get();
+
+        return view('admin/registrationlist',['users'=>$users]);
+
+    }
+
+
+
     // send message to any user or user-group
-    function sendEmail(){}
+    function sendEmail(){
+        // info - date, time, link, password, thanks-message
+    }
 
 }
