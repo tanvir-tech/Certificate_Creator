@@ -38,6 +38,17 @@ Route::post('/registration',[UserController::class,'registration']);
 
 
 // event
+Route::get('/createEvent', function () {
+    return view('admin/createEvent');
+});
+Route::post('/createEvent',[EventController::class,'createEvent']);
+
+
+
+
+
+
+//mail
 Route::get('/send',[EventController::class,'sendtoall']);
 // Route::get('/email', function () {
 //     Mail::to('totopypy5@gmail.com')->send(new SendInfo());

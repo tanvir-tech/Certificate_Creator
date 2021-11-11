@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Mail\SendInfo;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Codedge\Fpdf\Fpdf\Fpdf;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use PhpParser\Node\Expr\Cast\String_;
-
 use function PHPSTORM_META\type;
 
-class EventController extends Controller
+class MailController extends Controller
 {
+    //
 
     // send certificates
     function sendCertificates(String $name, String $gmail,String $date){
@@ -60,21 +60,10 @@ function sendtoall(){
 }
 
 
-
-
-
-    // see registered users records
-    function participantsList(){
-        $users = User::where('paid',1)->get();
-        return view('admin/registrationlist',['users'=>$users]);
+    // send message to any user or user-group
+    function sendEmail(){
+        // info - date, time, link, password, thanks-message
     }
-
-
-    function createEvent(Request $request){
-
-
-    }
-
 
 
 

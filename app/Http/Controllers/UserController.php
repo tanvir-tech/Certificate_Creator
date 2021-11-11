@@ -43,6 +43,10 @@ class UserController extends Controller
         $user->institution = $req->institution;
         $user->password = Hash::make($req->password);
 
+
+        // event id
+        // paid status
+        //
         $user->save();
 
         return redirect('login');
