@@ -12,7 +12,9 @@
         <h3 class="text-center">Create a new event</h3>
         <br>
 {{-- input  --}}
-        <input class="form-control mr-sm-2" type="text" placeholder="event name" name="name">
+        <input class="form-control mr-sm-2" type="text" placeholder="Title" name="title">
+        <br>
+        <textarea class="form-control" id="description" name="description" rows="8"></textarea>
         <br>
         <input type="date" placeholder="Date" name="date">
         &nbsp

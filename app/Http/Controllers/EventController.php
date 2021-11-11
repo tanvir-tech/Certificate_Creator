@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendInfo;
+use App\Models\Event;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Codedge\Fpdf\Fpdf\Fpdf;
@@ -72,7 +73,22 @@ function sendtoall(){
 
     function createEvent(Request $request){
 
+        $event=new Event();
+        $event->title = $request->title;
+        $event->description = $request->description;
 
+        $event->date = $request->date;
+        $event->time = $request->time;
+
+        $event->venue = $request->venue;
+
+        $event->fee = $request->fee;
+        $event->coupon = $request->coupon;
+
+        $event->status = "registration-on-going";
+
+
+        $event->save();
     }
 
 
