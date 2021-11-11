@@ -12,6 +12,7 @@ class SendInfo extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $name;
     public $file_path_pdf;
     /**
      * Create a new message instance.
@@ -21,6 +22,7 @@ class SendInfo extends Mailable
     public function __construct($maildata)
     {
         //
+        $this->name=$maildata['name'];
         $this->file_path_pdf=$maildata['file_path_pdf'];
     }
 

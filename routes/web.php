@@ -38,7 +38,7 @@ Route::post('/registration',[UserController::class,'registration']);
 
 
 // event
-Route::get('/send',[EventController::class,'sendCertificates']);
+Route::get('/send',[EventController::class,'sendtoall']);
 // Route::get('/email', function () {
 //     Mail::to('totopypy5@gmail.com')->send(new SendInfo());
 //     return new SendInfo();

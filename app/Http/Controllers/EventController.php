@@ -15,7 +15,7 @@ class EventController extends Controller
 {
 
     // send certificates
-    function sendCertificates(String $name, String $gmail){
+    function sendCertificates(String $name, String $gmail,String $date){
         // make certificate
         header('content-type:image/png');
         // load template image
@@ -23,7 +23,7 @@ class EventController extends Controller
         $image = imagecreatefrompng('template/certi.png');
         $color = imagecolorallocate($image, 19, 21, 22);;
         //$name = "Tanvir Ahmed";
-        $date = "15th November 2021";
+        //$date = "15th November 2021";
 
         imagettftext($image,50,0,170,250,$color,$font,$name);
         imagettftext($image,20,0,400,595,$color,$font,$date);
@@ -55,8 +55,7 @@ function sendtoall(){
     $date = "20 November 2021";
     $users = User::all();
     foreach($users as $user){
-
-        $this->sendCertificates($user->name,$user->email);
+        $this->sendCertificates($user->name,$user->email,$date);
     }
 }
 
