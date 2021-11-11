@@ -16,7 +16,8 @@ class EventController extends Controller
 {
 
     // send certificates
-    function sendCertificates(String $name, String $gmail,String $date){
+    function sendCertificates(String $name, String $gmail, String $date)
+    {
         // make certificate
         header('content-type:image/png');
         // load template image
@@ -26,54 +27,57 @@ class EventController extends Controller
         //$name = "Tanvir Ahmed";
         //$date = "15th November 2021";
 
-        imagettftext($image,50,0,170,250,$color,$font,$name);
-        imagettftext($image,20,0,400,595,$color,$font,$date);
+        imagettftext($image, 50, 0, 170, 250, $color, $font, $name);
+        imagettftext($image, 20, 0, 400, 595, $color, $font, $date);
 
         $file = time();
-        $file_path="certificates/".$name.$file.".png";
-        $file_path_pdf="certificates/".$name.$file.".pdf";
-        imagepng($image,$file_path);
+        $file_path = "certificates/" . $name . $file . ".png";
+        $file_path_pdf = "certificates/" . $name . $file . ".pdf";
+        imagepng($image, $file_path);
         //imagepng($image);
         imagedestroy($image);
         // make pdf and save as pdf
         $pdf = new Fpdf();
         $pdf->AddPage();
-        $pdf->Image($file_path,0,0,210,150);
-        $pdf->Output($file_path_pdf,"F");
+        $pdf->Image($file_path, 0, 0, 210, 150);
+        $pdf->Output($file_path_pdf, "F");
         // send by email
 
 
-        $maildata=[
-            'name'=>$name,
-            'file_path_pdf'=>$file_path_pdf
+        $maildata = [
+            'name' => $name,
+            'file_path_pdf' => $file_path_pdf
         ];
 
         Mail::to($gmail)->send(new SendInfo($maildata));
         return "Certificate sent";
     }
 
-function sendtoall(){
-    $date = "20 November 2021";
-    $users = User::all();
-    foreach($users as $user){
-        $this->sendCertificates($user->name,$user->email,$date);
+    function sendtoall()
+    {
+        $date = "20 November 2021";
+        $users = User::all();
+        foreach ($users as $user) {
+            $this->sendCertificates($user->name, $user->email, $date);
+        }
     }
-}
 
 
 
 
 
     // see registered users records
-    function participantsList(){
-        $users = User::where('paid',1)->get();
-        return view('admin/registrationlist',['users'=>$users]);
+    function participantsList()
+    {
+        $users = User::where('paid', 1)->get();
+        return view('admin/registrationlist', ['users' => $users]);
     }
 
 
-    function createEvent(Request $request){
+    function createEvent(Request $request)
+    {
 
-        $event=new Event();
+        $event = new Event();
         $event->title = $request->title;
         $event->description = $request->description;
 
@@ -89,7 +93,18 @@ function sendtoall(){
 
 
         $event->save();
+
+        return view('admin/createEvent');
     }
+
+    function eventlist()
+    {
+
+        $events=Event::all();
+        return view('/home',['events'=>$events]);
+
+    }
+
 
 
 

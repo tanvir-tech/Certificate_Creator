@@ -20,12 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/home', function () {
-    return view('home');
-});
-Route::get('/registration', function () {
-    return view('auth/registration');
-});
+Route::get('/home', [EventController::class,'eventlist']);
+
 
 // auth
 Route::get('/login', function () {
@@ -33,7 +29,9 @@ Route::get('/login', function () {
 });
 Route::post('/login',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
-Route::get('/registration', function () {return view('auth.registration');});
+Route::get('/registration', function () {
+    return view('auth.registration');
+});
 Route::post('/registration',[UserController::class,'registration']);
 
 
