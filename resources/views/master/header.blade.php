@@ -10,7 +10,10 @@
       <ul class="navbar-nav mr-auto">
 
             <li class="nav-item">
-            <a class="nav-link" href="/registration">Registration</a>
+                <a class="nav-link" href="/registration">Registration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pay">Pay</a>
             </li>
 
       </ul>

@@ -30,15 +30,17 @@
 
 
     <div class="container bg-info p-5">
-        <form action="">
+        <form action="verifypayment" method="POST">
             <h3 class="bg-danger p-4 text-white">
                 Merchant bKash Account Number : 01234567890
             </h3><br>
-            <h4>Payble amount : 500 BDT</h4>
+            {{-- <h4>Payble amount : 500 BDT</h4> --}}
             <br><br>
-            <input type="number" class="form-control mr-sm-2" placeholder="Transaction id">
+            <input type="number" class="form-control mr-sm-2" placeholder="Payment id" name="record_id">
             <br><br>
-            <input type="text" class="form-control mr-sm-2" placeholder="Your Name">
+            <input type="number" class="form-control mr-sm-2" placeholder="Transaction id" name="transaction_id">
+            <br><br>
+            <input type="text" class="form-control mr-sm-2" placeholder="Your Name" name="transaction_reference">
             <br><br>
             <button class="btn btn-lg btn-danger">Submit</button>
             <br><br>

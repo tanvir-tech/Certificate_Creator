@@ -25,6 +25,7 @@ class CreateRecordsTable extends Migration
 
             $table->string('transaction_gateway');
             $table->integer('transaction_id')->nullable();
+            // $table->integer('fee');
 
             $table->timestamps();
         });

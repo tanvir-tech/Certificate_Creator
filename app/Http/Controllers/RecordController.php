@@ -22,6 +22,10 @@ class RecordController extends Controller
             $record->transaction_id = null;
             $record->save();
 
+
+            // send record id by email
+
+
             return redirect('pay');
 
         }else{

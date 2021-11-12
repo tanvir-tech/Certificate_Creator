@@ -17,7 +17,7 @@ class PaymentController extends Controller
         $name = $req->transaction_reference;
 
         // verify payment
-        // 
+        //
 
 }
 }
