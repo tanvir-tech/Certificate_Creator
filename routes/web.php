@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\RecordController;
 use App\Http\Controllers\UserController;
 use App\Mail\SendInfo;
 use Illuminate\Support\Facades\Mail;
@@ -52,3 +53,9 @@ Route::get('/send',[EventController::class,'sendtoall']);
 //     Mail::to('totopypy5@gmail.com')->send(new SendInfo());
 //     return new SendInfo();
 // });
+
+
+// participate
+Route::get('detail/{id}',[EventController::class,'detail']);
+
+Route::post('participate',[RecordController::class,'participate']);

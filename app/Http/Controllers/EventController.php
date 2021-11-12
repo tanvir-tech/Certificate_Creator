@@ -108,5 +108,11 @@ class EventController extends Controller
 
 
 
+    function detail($id){
+        $event = Event::find($id);
+        return view('eventdetail',['event'=>$event]);
+    }
+
+
 
 }

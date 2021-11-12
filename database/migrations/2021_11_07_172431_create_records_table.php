@@ -18,10 +18,11 @@ class CreateRecordsTable extends Migration
             // records
             $table->integer('event_id');
             $table->integer('perticipant_id');
-            $table->string('perticipants_role');//instructor, student, guest,
+
             $table->boolean('paid');
             $table->boolean('attended');
             $table->boolean('certified');
+
             $table->timestamps();
         });
     }

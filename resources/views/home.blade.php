@@ -26,7 +26,7 @@
                 Venue : {{$event['time']}}
 
             </p>
-            <a href="detail/{{$event['id']}}" class="btn btn-warning btn-sm">Participate</a>
+            <a href="detail/{{$event['id']}}" class="btn btn-warning btn-sm">Detail</a>
           </div>
           <div class="card-footer text-danger">{{$event['fee']}} BDT</div>
         </div>
