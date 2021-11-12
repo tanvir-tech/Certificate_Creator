@@ -23,6 +23,9 @@ class CreateRecordsTable extends Migration
             $table->boolean('attended');
             $table->boolean('certified');
 
+            $table->string('transaction_gateway');
+            $table->integer('transaction_id')->nullable();
+
             $table->timestamps();
         });
     }

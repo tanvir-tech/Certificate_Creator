@@ -17,9 +17,12 @@ class RecordController extends Controller
             $record->paid = 0;
             $record->attended = 0;
             $record->certified = 0;
+
+            $record->transaction_gateway = "bkash";
+            $record->transaction_id = null;
             $record->save();
 
-            return redirect('home');
+            return redirect('pay');
 
         }else{
             return view('auth/login');

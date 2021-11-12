@@ -57,5 +57,10 @@ Route::get('/send',[EventController::class,'sendtoall']);
 
 // participate
 Route::get('detail/{id}',[EventController::class,'detail']);
-
 Route::post('participate',[RecordController::class,'participate']);
+
+
+//payment
+Route::get('pay', function () {
+    return view('payment/pay');
+});
