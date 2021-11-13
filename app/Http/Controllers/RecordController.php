@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Record;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RecordController extends Controller
 {
@@ -33,6 +34,20 @@ class RecordController extends Controller
         }
 
 
+    }
+
+
+    function registrationlist(){
+
+
+        $records = DB::table('records')
+            ->join('users', 'records.perticipant_id', '=', 'users.id')
+            ->select('users.*', 'records.id as record_id', 'records.paid', 'records.transaction_id')
+            // ->where('records.paid','=',1)
+            ->get();
+
+        // return $records;
+        return view('admin/registrationlist',['records'=>$records]);
     }
 
 

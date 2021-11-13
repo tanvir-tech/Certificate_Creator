@@ -76,12 +76,14 @@ function sendtoall(){
             ->where('records.paid','=',1)
             ->get();
         foreach($users as $user){
-            //$this->sendCertificates($user->name,$user->email,$date);
+            $this->sendCertificates($user->name,$user->email,$date);
         }
 
-        return $users;
+        // return $users;
 
     }
+
+
 
 
 

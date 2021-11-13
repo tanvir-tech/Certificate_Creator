@@ -69,3 +69,10 @@ Route::get('pay', function () {
 
 // certificate send
 Route::get('sendtopaidusers',[MailController::class,'sendtopaidusers']);
+
+
+
+
+
+// admin
+Route::get('registrationlist',[RecordController::class,'registrationlist']);

@@ -5,12 +5,10 @@
 
     <div class="row p-2">
       <div class="col-lg-9 bg-secondary text-white p-5">
-        <h1>Welcome to
-          <br>
-          Bookhouse.com</h1>
+        <h1>Welcome</h1>
         <br>
         <p>
-          Best collection of books.
+          Enjoy your learning.
         </p>
 
 
