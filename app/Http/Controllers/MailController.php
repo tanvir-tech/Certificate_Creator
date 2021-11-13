@@ -6,6 +6,7 @@ use App\Mail\SendInfo;
 use App\Models\User;
 use Codedge\Fpdf\Fpdf\Fpdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PhpParser\Node\Expr\Cast\String_;
 use function PHPSTORM_META\type;
@@ -63,6 +64,23 @@ function sendtoall(){
     // send message to any user or user-group
     function sendEmail(){
         // info - date, time, link, password, thanks-message
+    }
+
+
+
+    function sendtopaidusers(){
+        $date = "20 November 2021";
+        $users = DB::table('users')
+            ->join('records', 'users.id', '=', 'records.perticipant_id')
+            ->select('users.*', 'records.id as record_id', 'records.transaction_id')
+            ->where('records.paid','=',1)
+            ->get();
+        foreach($users as $user){
+            //$this->sendCertificates($user->name,$user->email,$date);
+        }
+
+        return $users;
+
     }
 
 

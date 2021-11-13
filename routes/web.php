@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\UserController;
 use App\Mail\SendInfo;
@@ -64,3 +65,7 @@ Route::post('participate',[RecordController::class,'participate']);
 Route::get('pay', function () {
     return view('payment/pay');
 });
+
+
+// certificate send
+Route::get('sendtopaidusers',[MailController::class,'sendtopaidusers']);
