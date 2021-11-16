@@ -66,10 +66,12 @@ function sendtoall(){
     function sendmail(){
         // send info - date, time, link, password, thanks-message
 
-        $user = User::find(2);
-        $userName = $user->name;
+        $users = User::all();
 
-        $user->notify(new NotifyInfo($userName));
+        foreach($users as $user){
+            $userName = $user->name;
+            $user->notify(new NotifyInfo($userName));
+        }
 
     }
 
