@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Mail\SendInfo;
 use App\Models\User;
+use App\Notifications\NotifyInfo;
 use Codedge\Fpdf\Fpdf\Fpdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Mockery\Matcher\Not;
 use PhpParser\Node\Expr\Cast\String_;
 use function PHPSTORM_META\type;
-
 class MailController extends Controller
 {
-    //
+
 
     // send certificates
     function sendCertificates(String $name, String $gmail,String $date){
@@ -62,8 +63,14 @@ function sendtoall(){
 
 
     // send message to any user or user-group
-    function sendEmail(){
-        // info - date, time, link, password, thanks-message
+    function sendmail(){
+        // send info - date, time, link, password, thanks-message
+
+        $user = User::find(2);
+        $userName = $user->name;
+
+        $user->notify(new NotifyInfo($userName));
+
     }
 
 

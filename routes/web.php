@@ -45,15 +45,10 @@ Route::post('/createEvent',[EventController::class,'createEvent']);
 
 
 
-
-
-
 //mail
-Route::get('/send',[EventController::class,'sendtoall']);
-// Route::get('/email', function () {
-//     Mail::to('totopypy5@gmail.com')->send(new SendInfo());
-//     return new SendInfo();
-// });
+Route::get('/sendInfo',[MailController::class,'sendmail']);
+Route::get('/sendCerti',[MailController::class,'sendtopaidusers']);
+
 
 
 // participate

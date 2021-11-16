@@ -3,9 +3,9 @@
 
 <div class="container p-5">
 
-    <h3 class="text-center text-warning">Edit notice</h3>
+    <h3 class="text-center text-info">Participants List </h3>
     <table class="table table-striped">
-        <thead class="bg-warning text-white">
+        <thead class="bg-info text-white">
             <tr>
                 <th scope="col">Record ID</th>
                 <th scope="col">Name</th>

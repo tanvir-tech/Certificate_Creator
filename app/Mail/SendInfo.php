@@ -34,6 +34,6 @@ class SendInfo extends Mailable
     public function build()
     {
 
-        return $this->subject('Certificate of participation')->markdown('emails.sendinfo')->attach(public_path($this->file_path_pdf));
+        return $this->subject('Certificate of participation')->markdown('emails.sendCertificate')->attach(public_path($this->file_path_pdf));
     }
 }
