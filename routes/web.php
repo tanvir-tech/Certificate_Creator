@@ -29,6 +29,20 @@ Route::get('/registration', function () {
 Route::post('/registration',[UserController::class,'registration']);
 
 
+
+
+// admin
+Route::get('/admin', function () {
+    return view('admin/adminDashboard');
+});
+Route::get('/participantlist', function () {
+    return view('admin/participantList');
+});
+Route::get('/sendmessage', function () {
+    return view('admin/sendmail');
+});
+
+
 // event
 Route::get('/createEvent', function () {
     return view('admin/createEvent');
