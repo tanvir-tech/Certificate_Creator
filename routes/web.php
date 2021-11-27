@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CertCreatorController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\RecordController;
@@ -8,16 +9,7 @@ use App\Mail\SendInfo;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('home');
@@ -45,12 +37,6 @@ Route::post('/createEvent',[EventController::class,'createEvent']);
 
 
 
-//mail
-Route::get('/sendInfo',[MailController::class,'sendmail']);
-Route::get('/sendCerti',[MailController::class,'sendtopaidusers']);
-
-
-
 // participate
 Route::get('detail/{id}',[EventController::class,'detail']);
 Route::post('participate',[RecordController::class,'participate']);
@@ -62,9 +48,14 @@ Route::get('pay', function () {
 });
 
 
+//mail
+Route::get('/sendInfo',[MailController::class,'sendmail']);
+
+// certificate create
+Route::get('/createCerti',[CertCreatorController::class,'createCertificates']);
 // certificate send
 Route::get('sendtopaidusers',[MailController::class,'sendtopaidusers']);
-
+Route::get('/sendCerti',[MailController::class,'sendtopaidusers']);
 
 
 
