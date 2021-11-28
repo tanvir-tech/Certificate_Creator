@@ -11,7 +11,7 @@
     </div>
     <div class="col-lg-4 bg-success text-info rounded p-5">
         <h1>
-            <a class="nav-link" href="/participantlist">Participant List</a>
+            <a class="nav-link" href="/registrationlist">Registration List</a>
         </h1>
     </div>
     <div class="col-lg-4 bg-warning text-info rounded p-5">
