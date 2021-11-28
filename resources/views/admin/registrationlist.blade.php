@@ -10,6 +10,7 @@
                 <th scope="col">Record ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Phone</th>
+                <th scope="col">Event Name</th>
                 <th scope="col">Paid</th>
                 <th scope="col">Transaction ID</th>
                 <th scope="col">Send Email</th>
@@ -23,10 +24,11 @@
         <th scope="row">{{$record->id}}</th>
         <td>{{$record->name}}</td>
         <td>{{$record->phone}}</td>
+        <td>#----change----</td>
         <td>{{$record->paid}}</td>
         <td>{{$record->transaction_id}}</td>
         <td>
-            <a href="sendmail/{{$record->id}}" class="text-white btn btn-danger">Message</a>
+            <a href="sendmail/{{$record->id}}" class="text-white btn btn-success">Message</a>
         </td>
     </tr>
 

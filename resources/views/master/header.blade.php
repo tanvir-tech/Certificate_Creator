@@ -8,12 +8,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item">
-                <a class="nav-link" href="/registration">Registration</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="/pay">Pay</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin">Admin</a>
             </li>
 
       </ul>
@@ -27,6 +26,7 @@
             {{Session::get('user')['name']}}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">My Events</a>
           <a class="dropdown-item" href="#">Profile</a>
           <a class="dropdown-item text-warning" href="logout">Logout</a>
         </div>
