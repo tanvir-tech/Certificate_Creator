@@ -16,12 +16,20 @@
     </div>
     <div class="col-lg-4 bg-warning text-info rounded p-5">
         <h1>
-            <a class="nav-link" href="/sendmessage">Send Message</a>
+            <a class="nav-link" href="/mailbox">Send Message</a>
         </h1>
     </div>
 
 </div>
-<div class="col-lg-3"></div>
+
+
+<div class="container col-lg-6 bg-warning text-danger p-5">
+        <h3>
+            <a class="nav-link" href="/sendtopaidusers">Send certificates</a>
+        </h3>
+        <br><br>
+        to all paid participants
+</div>
 
 
 
@@ -32,5 +40,5 @@
 
 
 
-
+</div>
 @endsection

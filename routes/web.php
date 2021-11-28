@@ -38,8 +38,8 @@ Route::get('/admin', function () {
 Route::get('/participantlist', function () {
     return view('admin/participantList');
 });
-Route::get('/sendmessage', function () {
-    return view('admin/sendmail');
+Route::get('/mailbox', function () {
+    return view('admin/mailbox');
 });
 
 
@@ -63,7 +63,7 @@ Route::get('pay', function () {
 
 
 //mail
-Route::get('/sendInfo',[MailController::class,'sendmail']);
+Route::get('/sendmailfrombox',[MailController::class,'sendmail']);
 
 // certificate create
 Route::get('/createCerti',[CertCreatorController::class,'createCertificates']);

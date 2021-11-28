@@ -57,32 +57,13 @@ class MailController extends Controller
         return "Certificate sent";
     }
 
-function sendtoall(){
-    $date = "20 November 2021";
-    $users = User::all();
-    foreach($users as $user){
-        $this->sendCertificates($user->name,$user->email,$date);
-    }
-}
-
-
-    // send message to any user or user-group
-    function sendmail(){
-        // send info - date, time, link, password, thanks-message
-
+    function sendtoall(){
+        $date = "20 November 2021";
         $users = User::all();
-
-
-        // Notification::send($users, new NotifyAll($users));
-
         foreach($users as $user){
-            $userName = $user->name;
-            $user->notify(new NotifyInfo($userName));
+            $this->sendCertificates($user->name,$user->email,$date);
         }
-
     }
-
-
 
     function sendtopaidusers(){
         $date = "20 November 2021";
@@ -96,8 +77,26 @@ function sendtoall(){
         }
 
         // return $users;
+        return view('admin/adminDashboard');
+    }
+
+
+
+    // send message to any user or user-group
+    function sendmail(){
+        // send info - date, time, link, password, thanks-message
+
+        $users = User::all();
+
+        // Notification::send($users, new NotifyAll($users));
+
+        foreach($users as $user){
+            $userName = $user->name;
+            $user->notify(new NotifyInfo($userName));
+        }
 
     }
+
 
 
 
