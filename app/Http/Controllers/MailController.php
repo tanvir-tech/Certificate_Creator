@@ -7,10 +7,12 @@ use App\Models\User;
 use App\Notifications\NotifyAll;
 use App\Notifications\NotifyInfo;
 use Codedge\Fpdf\Fpdf\Fpdf;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Storage;
 use Mockery\Matcher\Not;
 use PhpParser\Node\Expr\Cast\String_;
 use function PHPSTORM_META\type;
@@ -29,8 +31,6 @@ class MailController extends Controller
         //$name = "Tanvir Ahmed";
         //$date = "15th November 2021";
 
-        // imagettftext($image,50,0,170,250,$color,$font,$name);
-        // imagettftext($image,20,0,400,595,$color,$font,$date);
         imagettftext($image,50,0,430,730,$color,$font,$name);
         imagettftext($image,40,0,925,820,$color,$font,$date);
 
@@ -48,12 +48,15 @@ class MailController extends Controller
         // send by email
 
 
+
         $maildata=[
             'name'=>$name,
             'file_path_pdf'=>$file_path_pdf
         ];
 
         Mail::to($gmail)->send(new SendInfo($maildata));
+
+        Storage::delete("certificates/".$file_path_pdf);
         return "Certificate sent";
     }
 
