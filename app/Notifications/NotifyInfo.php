@@ -13,15 +13,19 @@ class NotifyInfo extends Notification
     use Queueable;
 
     public $userName;
+    public $subject;
+    public $message;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($userName)
+    public function __construct($userName,$subject,$message)
     {
         $this->userName = $userName;
+        $this->subject = $subject;
+        $this->message = $message;
     }
 
     /**
@@ -44,10 +48,11 @@ class NotifyInfo extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
+                    ->subject($this->subject)
+                    ->line($this->message)
                     ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!')
-                    ->markdown('emails.sendinfo', ['name' => $this->userName]);
+                    ->markdown('emails.boxmessage', ['name' => $this->userName,'message' => $this->message]);
 
     }
 

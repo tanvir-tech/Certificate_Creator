@@ -11,8 +11,8 @@
         <h3>
             <label for="dept">Target people :</label>
             <select class="form-control col-lg-4" id="paymentstatus" name="paymentstatus">
-                <option value="paid">Paid</option>
-                <option value="unpaid">Unpaid</option>
+                <option value=1>Paid</option>
+                <option value=0>Unpaid</option>
             </select>
         <br>
         </h3>

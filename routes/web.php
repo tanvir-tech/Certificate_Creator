@@ -63,7 +63,7 @@ Route::get('pay', function () {
 
 
 //mail
-Route::get('/sendmailfrombox',[MailController::class,'sendmail']);
+Route::post('/sendmailfrombox',[MailController::class,'sendmailfrombox']);
 
 // certificate create
 Route::get('/createCerti',[CertCreatorController::class,'createCertificates']);

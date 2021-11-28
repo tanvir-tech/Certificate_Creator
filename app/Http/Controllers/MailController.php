@@ -75,24 +75,27 @@ class MailController extends Controller
         foreach($users as $user){
             $this->sendCertificates($user->name,$user->email,$date);
         }
-
         // return $users;
         return view('admin/adminDashboard');
     }
 
 
-
     // send message to any user or user-group
-    function sendmail(){
-        // send info - date, time, link, password, thanks-message
+    function sendmailfrombox(Request $req){
 
-        $users = User::all();
+        $paymentstatus = $req->paymentstatus;
+        $eventid = $req->eventid;
+        $subject = $req->subject;
+        $message = $req->message;
 
-        // Notification::send($users, new NotifyAll($users));
+        $users = User::join('records', 'users.id', '=', 'records.perticipant_id')
+        ->where('records.paid','=',$paymentstatus)
+        ->where('records.event_id','=',$eventid)
+        ->get();
 
         foreach($users as $user){
             $userName = $user->name;
-            $user->notify(new NotifyInfo($userName));
+            $user->notify(new NotifyInfo($userName,$subject,$message));
         }
 
     }
