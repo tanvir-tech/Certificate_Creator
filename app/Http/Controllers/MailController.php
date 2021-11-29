@@ -79,7 +79,7 @@ class MailController extends Controller
             $this->sendCertificates($user->name,$user->email,$date);
         }
         // return $users;
-        return view('admin/adminDashboard');
+        redirect('admin/adminDashboard')->with('success','Success! Certificate Sent');
     }
 
 
@@ -100,6 +100,9 @@ class MailController extends Controller
             $userName = $user->name;
             $user->notify(new NotifyInfo($userName,$subject,$message));
         }
+
+        sleep(10);
+        redirect('mailbox')->with('success','Success! Message Sent');
 
     }
 

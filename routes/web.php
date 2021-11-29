@@ -6,6 +6,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\UserController;
 use App\Mail\SendInfo;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->middleware("adminCheck");
 Route::get('/home', [EventController::class,'eventlist']);
 
 

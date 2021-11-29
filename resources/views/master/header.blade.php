@@ -11,19 +11,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="/pay">Pay</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/admin">Admin</a>
-            </li>
-
       </ul>
 
 
 
       @if(Session::has('user'))
+            @if (Str::contains(Session::get('user')['id'] , "1"))
+                <a class="nav-link" href="/admin">Admin</a>
+            @endif
 {{-- dropedown menu  --}}
       <div class="dropdown p-1">
         <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{Session::get('user')['name']}}
+
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#">My Events</a>
