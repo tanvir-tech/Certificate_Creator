@@ -27,6 +27,8 @@ class CreateRecordsTable extends Migration
             $table->integer('transaction_id')->nullable();
             // $table->integer('fee');
 
+            $table->string('payment_token')->unique();
+
             $table->timestamps();
         });
     }

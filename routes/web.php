@@ -3,6 +3,7 @@
 use App\Http\Controllers\CertCreatorController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\UserController;
 use App\Mail\SendInfo;
@@ -13,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('home');
-})->middleware("adminCheck");
+    return view('home');});
+    // ->middleware("adminCheck");
 Route::get('/home', [EventController::class,'eventlist']);
 
 
@@ -61,6 +62,9 @@ Route::post('participate',[RecordController::class,'participate']);
 Route::get('pay', function () {
     return view('payment/pay');
 });
+Route::post('transactionInfo', [PaymentController::class,'transactionInfo']);
+
+// Route::get('verifyPayment', [PaymentController::class,'verifyPayment']);
 
 
 //mail

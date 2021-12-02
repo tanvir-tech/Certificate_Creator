@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Record;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Nette\Utils\Random;
 
 class RecordController extends Controller
 {
@@ -16,15 +17,19 @@ class RecordController extends Controller
             $record->perticipant_id = session()->get('user')['id'];
             $record->event_id = $req->event_id;
             $record->paid = 0;
+            $record->verified = 0;
             $record->attended = 0;
             $record->certified = 0;
 
             $record->transaction_gateway = "bkash";
             $record->transaction_id = null;
+                $payment_token = $req->event_id."occ".session()->get('user')['id'];
+            $record->payment_token = $payment_token;
+
             $record->save();
 
 
-            // send record id by email
+            // send $payment_token by email
 
 
             return redirect('pay');

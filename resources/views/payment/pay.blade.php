@@ -30,13 +30,14 @@
 
 
     <div class="container bg-info p-5">
-        <form action="verifypayment" method="POST">
+        <form action="transactionInfo" method="POST">
+            @csrf
             <h3 class="bg-danger p-4 text-white">
                 Merchant bKash Account Number : 01234567890
             </h3><br>
             {{-- <h4>Payble amount : 500 BDT</h4> --}}
             <br><br>
-            <input type="number" class="form-control mr-sm-2" placeholder="Payment id" name="record_id">
+            <input type="text" class="form-control mr-sm-2" placeholder="payment_token" name="payment_token">
             <br><br>
             <input type="number" class="form-control mr-sm-2" placeholder="Transaction id" name="transaction_id">
             <br><br>
