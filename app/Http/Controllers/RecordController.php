@@ -47,7 +47,7 @@ class RecordController extends Controller
 
         $records = DB::table('records')
             ->join('users', 'records.perticipant_id', '=', 'users.id')
-            ->select('users.*', 'records.id as record_id', 'records.paid', 'records.transaction_id')
+            ->select('users.*', 'records.id as record_id', 'records.paid', 'records.transaction_id','records.payment_token','records.verified')
             // ->where('records.paid','=',1)
             ->get();
 
