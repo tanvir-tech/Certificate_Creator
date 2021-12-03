@@ -33,7 +33,7 @@
         <td>{{$record->verified}}</td>
         <td>
             <a href="sendmail/{{$record->id}}" class="text-white btn btn-warning">Message</a>
-            <a href="verify/{{$record->id}}" class="text-white btn btn-success">Verify</a>
+            <a href="verify/{{$record->payment_token}}" class="text-white btn btn-success">Verify</a>
         </td>
     </tr>
 {{-- @php

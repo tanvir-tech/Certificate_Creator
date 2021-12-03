@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Record;
+use App\Models\User;
+use App\Notifications\PaymentToken;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\Cast\String_;
 
 class PaymentController extends Controller
 {
@@ -27,8 +31,20 @@ class PaymentController extends Controller
 
         return "Payment information will be verified.Thank you.";
 
+    }
 
 
+    function verifyPayment($paymentToken){
+
+        $record = Record::where(['payment_token'=>$paymentToken])->first();
+
+        if($record->transaction_id){
+            $record->paid = 1;
+            $record->save();
+        }
+
+
+        return redirect('registrationlist');
     }
 
 

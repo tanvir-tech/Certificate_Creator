@@ -64,7 +64,7 @@ Route::get('pay', function () {
 });
 Route::post('transactionInfo', [PaymentController::class,'transactionInfo']);
 
-// Route::get('verifyPayment', [PaymentController::class,'verifyPayment']);
+Route::get('verify/{paymentToken}', [PaymentController::class,'verifyPayment']);
 
 
 //mail

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Record;
+use App\Models\User;
+use App\Notifications\PaymentToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Nette\Utils\Random;
@@ -23,14 +25,20 @@ class RecordController extends Controller
 
             $record->transaction_gateway = "bkash";
             $record->transaction_id = null;
-                $payment_token = $req->event_id."occ".session()->get('user')['id'];
+                $payment_token = $req->event_id."OCC".session()->get('user')['id']."-T".time();
             $record->payment_token = $payment_token;
 
             $record->save();
 
 
+            // return $payment_token;
             // send $payment_token by email
 
+            $user = User::join('records', 'users.id', '=', 'records.perticipant_id')
+            ->where('records.payment_token','=',$payment_token)
+            ->first();
+
+            $user->notify(new PaymentToken($payment_token));
 
             return redirect('pay');
 
