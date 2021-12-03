@@ -54,6 +54,16 @@ class EventController extends Controller
 
     }
 
+    function myEventlist()
+    {
+
+        $events = Event::join('records', 'records.event_id', '=', 'events.id')
+               ->get(['events.*']);
+
+        return view('/home',['events'=>$events]);
+
+    }
+
 
 
 

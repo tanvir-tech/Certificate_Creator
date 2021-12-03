@@ -18,6 +18,8 @@ Route::get('/', function () {
     // ->middleware("adminCheck");
 Route::get('/home', [EventController::class,'eventlist']);
 
+Route::get('/myEvents', [EventController::class,'myEventlist']);
+
 
 // auth
 Route::get('/login', function () {

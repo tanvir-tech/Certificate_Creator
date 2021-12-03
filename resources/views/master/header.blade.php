@@ -26,7 +26,7 @@
 
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">My Events</a>
+          <a class="dropdown-item" href="myEvents">My Events</a>
           <a class="dropdown-item" href="#">Profile</a>
           <a class="dropdown-item text-warning" href="logout">Logout</a>
         </div>
