@@ -2,15 +2,15 @@
 @section("content")
 
 
-<div class="container p-5">
+<div class="container p-5 ">
     @if(Session::has('user'))
     <h3 class="text-center">
         Welcome {{Session::get('user')['name']}}.
     </h3>
-    <div class="row p-1 d-flex justify-content-center bg-info">
+    <div class="row p-1 d-flex justify-content-center">
         @foreach ($events as $event)
-        <div class="card text-center col-sm-3 m-1">
-          <div class="card-header text-success">
+        <div class="card text-center col-sm-3 m-1 gradient-cart ">
+          <div class="card-header text-light">
             {{$event['title']}}
           </div>
           {{-- image-link  --}}

@@ -1,6 +1,8 @@
 
+
+
 {{-- nav bar  --}}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light ">
     <a class="navbar-brand " href="/home">Online Certificate Creator</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -41,7 +43,7 @@
   </nav>
   {{-- nav bar closed  --}}
 
-<div class="container bg-warning p-2">
+<div class="container gradient-marque  p-2">
     <marquee behavior="" direction="">
         The seminar will be held on 12 November 2021.Thank you.
     </marquee>

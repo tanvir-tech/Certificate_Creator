@@ -1,53 +1,107 @@
 @extends('master/master')
 @section("content")
 
-<div class="container">
+<head>
+	<title>Index</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{asset('layout/images/icons/favicon.ico')}}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('layout/vendor/bootstrap/css/bootstrap.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('layout/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('layout/vendor/animate/animate.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('layout/vendor/css-hamburgers/hamburgers.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('layout/vendor/select2/select2.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('layout/css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('layout/css/main.css')}}">
+<!--===============================================================================================-->
+</head>
+<body>
 
-    <div class="row p-2">
-      <div class="col-lg-9 bg-secondary text-white p-5">
-        <h1>Welcome</h1>
-        <br>
-        <p>
-          Enjoy your learning.
-        </p>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="{{asset('layout/images/img-01.png')}}" alt="IMG">
+				</div>
+
+				<form class="login100-form validate-form" action="login" method="POST">
+                    @csrf
+					<span class="login100-form-title">
+						Member Login
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Forgot
+						</span>
+						<a class="txt2" href="#">
+							Username / Password?
+						</a>
+					</div>
+
+					<div class="text-center p-t-136">
+						<a class="txt2" href="#">
+							Create your Account
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+    {{-- {{asset('layout/          ')}} --}}
+
+<!--===============================================================================================-->
+	<script src="{{asset('layout/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('layout/vendor/bootstrap/js/popper.js')}}"></script>
+	<script src="{{asset('layout/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('layout/vendor/select2/select2.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('layout/vendor/tilt/tilt.jquery.min.js')}}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{{asset('layout/js/main.js')}}"></script>
 
 
 
-      </div>
-      <!-- welcome closed  -->
-      <div class="col-lg-3 bg-success text-white">
-        <form action="login" method="POST">
-          @csrf
-        <br>
-        <h4 class="text-center">Login here</h4>
-        <br>
-        <input class="form-control mr-sm-2" type="text" placeholder="email ID" name="email">
-        <br>
-        <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password">
-        <br>
-        <button class="btn btn-danger" type="submit">Login</button>
-        <a class="text-success btn btn-warning btn-sm" href="registration">Create account</a>
-        <br><br>
-        <a class="text-white" href="forgetPass">Forgot password !</a>
-        <br><br>
-        </form>
-      </div>
-      <!-- login closed  -->
-    </div>
-    <!-- row closed -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-  </div>
-  <!-- container close -->
+    <!-- container close -->
 @endsection
+

@@ -1,0 +1,47 @@
+
+  .gradient-background {
+    /* fallback for old browsers */
+    background: #6a85b6;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom, rgba(106, 133, 182, 0.5), rgba(186, 200, 224, 0.5));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom, rgba(106, 133, 182, 0.5), rgba(186, 200, 224, 0.5))
+  }
+
+
+  .gradient-cart {
+    /* fallback for old browsers */
+    background: #4facfe;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(79, 172, 254, 0.5), rgba(0, 242, 254, 0.5));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(79, 172, 254, 0.5), rgba(0, 242, 254, 0.5))
+  }
+
+  .gradient-admin {
+    /* fallback for old browsers */
+    background: #fccb90;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom, rgba(252, 203, 144, 0.5), rgba(213, 126, 235, 0.5));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom, rgba(252, 203, 144, 0.5), rgba(213, 126, 235, 0.5))
+  }
+
+
+
+  .gradient-marque {
+    /* fallback for old browsers */
+    background: #43e97b;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom, rgba(67, 233, 123, 0.5), rgba(56, 249, 215, 0.5));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom, rgba(67, 233, 123, 0.5), rgba(56, 249, 215, 0.5))
+  }
