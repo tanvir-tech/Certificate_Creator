@@ -52,4 +52,8 @@ class UserController extends Controller
         return redirect('login');
 
     }
+
+    function index(Request $req){
+            return view("index");
+    }
 }

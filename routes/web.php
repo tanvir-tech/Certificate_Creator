@@ -25,6 +25,7 @@ Route::get('/myEvents', [EventController::class,'myEventlist']);
 Route::get('/login', function () {
     return view('auth/login');
 });
+Route::get('index',[UserController::class,'index']);
 Route::post('/login',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
 Route::get('/registration', function () {
