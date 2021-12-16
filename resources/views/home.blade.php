@@ -11,11 +11,15 @@
         @foreach ($events as $event)
         <div class="card text-center col-sm-3 m-1 gradient-cart ">
           <div class="card-header text-light">
-            {{$event['title']}}
+            Event id : {{$event['id']}}
+            <br>
+            Title : {{$event['title']}}
+            <br>
           </div>
           {{-- image-link  --}}
           {{-- <img class="card-img-top img-thumbnail" src="{{asset('gallery/'.$event['gallery'])}}" alt="Card image cap"> --}}
           <div class="card-body bg-secondary text-white">
+
             <h5 class="card-title">{{$event['description']}}</h5>
 
             <p class="card-text">
@@ -23,7 +27,7 @@
                 <br>
                 Time : {{$event['time']}}
                 <br>
-                Venue : {{$event['time']}}
+                Venue : {{$event['venue']}}
 
             </p>
             <a href="detail/{{$event['id']}}" class="btn btn-warning btn-sm">Detail</a>

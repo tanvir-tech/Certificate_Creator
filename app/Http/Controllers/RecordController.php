@@ -8,6 +8,7 @@ use App\Notifications\PaymentToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Nette\Utils\Random;
+use Symfony\Component\Console\Input\Input;
 
 class RecordController extends Controller
 {
@@ -61,6 +62,29 @@ class RecordController extends Controller
 
         // return $records;
         return view('admin/registrationlist',['records'=>$records]);
+
+
+    }
+
+
+    function searchRegistrationlist(Request $req){
+
+        $event = $req->input('query');
+        // $q = $req->query;
+        $records = DB::table('records')
+            ->where('event_id','=',$event)
+            ->join('users', 'records.perticipant_id', '=', 'users.id')
+            ->select('users.*', 'records.id as record_id', 'records.paid', 'records.transaction_id','records.payment_token','records.verified')
+            ->get();
+
+
+
+
+        // return $records;
+        return view('admin/registrationlist',['records'=>$records]);
+
+
+
     }
 
 

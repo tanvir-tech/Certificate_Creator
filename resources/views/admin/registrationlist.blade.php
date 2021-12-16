@@ -4,6 +4,13 @@
 
 
     <h3 class="text-center text-info">Participants List </h3>
+    {{-- search  --}}
+    <form class="form-inline my-2 my-lg-0" action="searchRegistrationlist" method="GET">
+        <input class="form-control mr-sm-2" type="search" placeholder="Event ID" aria-label="Search" name="query">
+        <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <br>
+
     <table class="table table-striped">
         <thead class="bg-info text-white">
             <tr>

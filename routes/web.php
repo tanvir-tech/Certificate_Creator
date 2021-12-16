@@ -25,7 +25,7 @@ Route::get('/myEvents', [EventController::class,'myEventlist']);
 Route::get('/login', function () {
     return view('auth/login');
 });
-Route::get('index',[UserController::class,'index']);
+// Route::get('index',[UserController::class,'index']);
 Route::post('/login',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
 Route::get('/registration', function () {
@@ -40,12 +40,14 @@ Route::post('/registration',[UserController::class,'registration']);
 Route::get('/admin', function () {
     return view('admin/adminDashboard');
 });
-Route::get('/participantlist', function () {
-    return view('admin/participantList');
-});
+// Route::get('/participantlist', function () {
+//     return view('admin/participantList');
+// });
 Route::get('/mailbox', function () {
     return view('admin/mailbox');
 });
+Route::get('registrationlist',[RecordController::class,'registrationlist']);
+Route::get('/searchRegistrationlist',[RecordController::class,'searchRegistrationlist']);
 
 
 // event
@@ -82,5 +84,4 @@ Route::get('/sendCerti',[MailController::class,'sendtopaidusers']);
 
 
 
-// admin
-Route::get('registrationlist',[RecordController::class,'registrationlist']);
+
