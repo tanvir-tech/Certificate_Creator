@@ -39,7 +39,8 @@
         <td>{{$record->transaction_id}}</td>
         <td>{{$record->verified}}</td>
         <td>
-            <a href="sendmail/{{$record->id}}" class="text-white btn btn-warning">Message</a>
+            {{-- {{$record->id}} --}}
+            <a href="mailbox" class="text-white btn btn-warning">Message</a>
             <a href="verify/{{$record->payment_token}}" class="text-white btn btn-success">Verify</a>
         </td>
     </tr>

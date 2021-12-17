@@ -40,6 +40,7 @@ class PaymentController extends Controller
 
         if($record->transaction_id){
             $record->paid = 1;
+            $record->verified = 1;
             $record->save();
         }
 

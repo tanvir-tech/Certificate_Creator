@@ -5,11 +5,7 @@
         <h4>Send Mail</h4>
     </div>
 
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{session('success')}}
-        </div>
-    @endif
+
 
     <form action="/sendmailfrombox" method="POST" enctype="multipart/form-data">
         @csrf

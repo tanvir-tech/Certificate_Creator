@@ -14,7 +14,7 @@
 {{-- input  --}}
         <input class="form-control mr-sm-2" type="text" placeholder="Title" name="title">
         <br>
-        <textarea class="form-control" id="description" name="description" rows="8"></textarea>
+        <textarea class="form-control" id="description" placeholder="Description" name="description" rows="8"></textarea>
         <br>
         <input type="date" placeholder="Date" name="date">
         &nbsp

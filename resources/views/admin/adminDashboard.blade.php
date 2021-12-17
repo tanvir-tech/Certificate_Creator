@@ -11,7 +11,7 @@
     </div>
     <div class="col-lg-6 jumbotron gradient-admin  text-info rounded p-5">
         <h1>
-            <a class="nav-link" href="/registrationlist">Registration List</a>
+            <a class="nav-link" href="/registrationlist">Participant List</a>
         </h1>
     </div>
     <div class="col-lg-6 jumbotron gradient-admin  text-info rounded p-5">
